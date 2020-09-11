@@ -75,21 +75,22 @@ for m_id in f_list:
 
         count1 = Counter(jn_list)
         print('專有名詞+形容詞數量:',len(count1))
-
+        
+        dict_tf = {}
+        dict_idf = {}
+        set_tf = set()
+        set_idf = set()
+        
         scores_tf = {word: tf(word, count1) for word in count1}
         sorted_words_tf = sorted(scores_tf.items(), key=lambda x: x[1], reverse=True)
         scores_idf = {word: idf(word, count1) for word in count1}
         sorted_words_idf = sorted(scores_idf.items(), key=lambda x: x[1], reverse=True)
 
-        dict_tf = {}
-        dict_idf = {}
         for g in sorted_words_tf:
             dict_tf[g[0]]= '%.10f' % g[1]
         for h in sorted_words_idf:
             dict_idf[h[0]]= '%.10f' % h[1]
 
-        set_tf = set()
-        set_idf = set()
         for a in list(dict_tf.keys())[:500]:
             set_tf.add(a)
         for b in list(dict_idf.keys())[:500]:

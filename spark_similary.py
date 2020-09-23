@@ -1,13 +1,8 @@
 # E:\mongodb\bin$ mongod --bind_ip_all --dbpath e:\mongo_json
 # master@ cd ~ ; cd hadoop-2.10.0/sbin ; ./stop-dfs.sh ; ./start-dfs.sh
 # master@ cd ~ ; cd spark-2.4.5-bin-hadoop2.7/sbin ; ./stop-all.sh ; ./start-all.sh
-
 # hadoop fs -put ~/Desktop/spark101/movies/rating11 spark101/movies
 # ui@ pyspark --master spark://master:7077 --executor-memory 8G
-
-# error
-# https://www.itread01.com/qypxl.html
-# https://blog.csdn.net/qq_27093465/article/details/86063976
 
 from pyspark import SparkContext
 import time
@@ -46,11 +41,10 @@ def compute_score(ratingPairs):
 # if __name__ == "__main__":
 
     # sc = SparkContext()
-    # data = sc.textFile("hdfs://devenv/user/spark/spark101/movies_similarity/data/movie_ratings") 
     # data = sc.textFile("hdfs://master/user/spark/spark101/movies/usernum55")
     #                                                                   user          movie       rating
     # user_movie_ratings = data.map(lambda l: l.split()).map(lambda l: (int(l[0]), (int(l[1]), float(l[2]))))   
-    #usernum888
+
     data = sc.textFile("hdfs://master/user/spark/spark101/movies/rating50")
     
     user_movie_ratings = data.map(lambda l: l.split()).map(lambda l: (int(l[2]), (int(l[0]), float(l[1]))))
@@ -78,7 +72,8 @@ df2 = spark.createDataFrame(scores,schema)
 import pandas
 df3 = df2.toPandas() 
 df3.to_json('~/Desktop/spark101/movies/data40n',orient = "records")
-##################insert to mongo#################################
+
+##################insert to mongo############################
 import json
 from pymongo import MongoClient
 
@@ -86,11 +81,6 @@ myclient = MongoClient("mongodb://10.120.26.13:27017/")
 db = myclient["MOVIE"]
 Collection = db["data35"]
 
-# posts= {$and:[{in:'tt0111161'},{con:{$gte:10}}]},{_id:0}
-# res = db.data25.find(posts).sort({sim:-1,con:-1}).limit(100)
-
-# for i in res:
-#     print(i)
 with open('/home/spark/Desktop/spark101/movies/data40n') as file:
     file_data = json.load(file)
 
@@ -98,7 +88,6 @@ if isinstance(file_data, list):
     Collection.insert_many(file_data)
 else:
     Collection.insert_one(file_data)
-
 
 ##################逐筆insert############################# 
 # for movie_pair in movies_similarity_result:

@@ -49,3 +49,30 @@ for m_id in m_list:
     #             f.write(m_id + '\t' + a)
     #             f.write('\n')
 
+    #取得中文名
+#     try:
+#         rating = soup.select('span[itemprop="ratingValue"]')[0].text
+#     except:
+#         rating = ''
+#     try:
+#         vote = soup.select('span[class="small"]')[0].text
+#     except:
+#         vote = ''
+#     try:
+#         title = soup.select('div[class="title_wrapper"] h1')[0].text.split(' (20')[0]
+#     except:
+#         title = ''
+#     try:
+#         runtime = soup.select('div[class="txt-block"] time')[0].text
+#     except:
+#         runtime = ''
+#     try:
+#         originalTitle = soup.select('div[class="title_wrapper"] div[class="originalTitle"]')[0].text
+#         originalTitle = originalTitle.replace(' (original title)','')
+#     except:
+#         originalTitle = ''
+
+#     with open('1_other.tsv', 'a', encoding='utf-8') as g:
+#         g.write(m_id +'\t'+rating+'\t'+vote+'\t'+title+'\t'+runtime+'\t'+originalTitle)
+#         g.write('\n')
+#     time.sleep(random.randint(1, 3))

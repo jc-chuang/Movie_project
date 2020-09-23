@@ -14,7 +14,7 @@ for data in data['itemListElement']:
 # 處理class
 with open('tomato.csv', 'r', encoding='utf-8') as e:
     m_list = e.readlines()
-# m_list =['border_2018','born_to_be_wild_2011']
+
 for m_name in m_list:
     name1 = m_name.replace('\n','')
     url='https://www.rottentomatoes.com/m/{}'.format(name1)

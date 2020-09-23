@@ -193,5 +193,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-# 尚未研究:1. 例外處理優化 2. 昀燊的code 3.研究re.sub

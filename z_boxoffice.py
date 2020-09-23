@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 res = requests.get('https://www.boxofficemojo.com/title/tt8110330/') #無預算
-# https://www.boxofficemojo.com/title/tt8110330/credits/  #有預算 tt1502397
+# https://www.boxofficemojo.com/title/tt8110330/credits/  #有預算
 soup = BeautifulSoup(res.text, "html.parser")
 budget_lis = soup.select('div[class="a-section a-spacing-none"] span')
 

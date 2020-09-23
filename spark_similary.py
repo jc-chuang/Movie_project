@@ -88,15 +88,3 @@ if isinstance(file_data, list):
     Collection.insert_many(file_data)
 else:
     Collection.insert_one(file_data)
-
-##################逐筆insert############################# 
-# for movie_pair in movies_similarity_result:
-#     movie_dict = {}
-#     movie_dict['input']=str(movie_pair[0][0])
-#     movie_dict['output']=str(movie_pair[0][1])
-#     movie_dict['similarity']=str(movie_pair[1][0])
-#     movie_dict['count']=str(movie_pair[1][1])
-#     client = MongoClient('10.120.26.13', 27017)
-#     db = client.similarity
-#     result = db.w10_0828.insert_one(movie_dict)
-#     time.sleep(1)

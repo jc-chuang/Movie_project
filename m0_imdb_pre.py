@@ -65,7 +65,7 @@ print('done',len(id_list))
 #     print('熱議排名:',title_no)
 #     print(title_name)
 #     print(title_url)
-#
+# 
 #     # '''進入電影內頁'''
 #     res2 = requests.post(title_url)
 #     soup2 = BeautifulSoup(res2.text, 'html.parser')

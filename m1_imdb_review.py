@@ -26,7 +26,7 @@ def get_review (filename) :
         # chrome_options.add_argument("--disable-browser-side-navigation")
         # chrome_options.add_argument("--disable-gpu")
         # chrome_options.add_argument('--dns-prefetch-disable')
-
+ 
         browser = Chrome(chrome_options=chrome_options, executable_path='./chromedriver')
 
         browser.get(first_url)
